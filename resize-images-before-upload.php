@@ -301,7 +301,7 @@ class WP_Resize_Images_Before_Upload {
  * Register the plugin - unless we have told them about a flash problem in which case this plugin is useless
  */
 if ( !isset($_SESSION['you_toldmeabout_flash']) ){
-    add_action("init", create_function('', 'new WP_Resize_Images_Before_Upload();'));
+    add_action("init", function(){return new WP_Resize_Images_Before_Upload;});
 }
 
 // Ending PHP tag is not needed, it will only increase the risk of white space 
